@@ -1,11 +1,11 @@
 <div class="product-list">
-    <div class="product-card" *ngFor="let product of listesBienImmobilier">
-      <img [src]="product.image" alt="{{ product.titre }}" class="product-image">
-      <div class="product-info">
-        <h3 class="product-name">{{ product.titre}}</h3>
-        <p class="product-price">{{ product.prix_location }}</p>
-        <button class="btn">Add to Cart</button>
-      </div>
+  <div class="product-card" *ngFor="let product of listesBienImmobilier">
+    <!-- Construction correcte de l'URL -->
+    <img [src]="'http://127.0.0.1:8000/storage/'+product.image" alt="{{ product.titre }}" class="product-image">
+    <div class="product-info">
+      <h3 class="product-name">{{ product.titre }}</h3>
+      <p class="product-price">{{ product.prix_location }}</p>
+      <button class="btn">Acheter</button>
     </div>
   </div>
-  
+</div>
