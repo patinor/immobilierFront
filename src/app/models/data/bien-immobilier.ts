@@ -28,4 +28,18 @@ export class BienImmobilier {
 }
 
 
+export class Client {
+
+    id!:number
+    nom!:string
+    prenom!:string
+    email!:string
+    piece_identite!:string
+    tel!:string
+    adresse!:string
+    password!:string
+
+}
+
+
 
