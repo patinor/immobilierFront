@@ -5,7 +5,38 @@
     <div class="product-info">
       <h3 class="product-name">{{ product.titre }}</h3>
       <p class="product-price">{{ product.prix_location }}</p>
-      <button class="btn">Acheter</button>
+      <button class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="selecProduct(product)" >Details</button>
+      <button class="btn">Reservation</button>
+      <button class="btn">Visite</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Details-du-bien</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="product-list">
+          <div class="product-card" >
+            <!-- Construction correcte de l'URL -->
+            <img [src]="'http://127.0.0.1:8000/storage/'+productDetails?.image" alt="{{ productDetails?.titre }}" class="product-image">
+            <div class="product-info">
+              <h3 class="product-name">{{ productDetails?.titre }}</h3>
+              <p class="product-price">{{ productDetails?.prix_location }}</p>
+              <button class="btn">Reserver</button>
+              <button class="btn">Vister</button>
+                </div>
+          </div>
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
     </div>
   </div>
 </div>
