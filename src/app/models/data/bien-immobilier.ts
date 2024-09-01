@@ -15,7 +15,7 @@ export class Categorie{
 
 export class BienImmobilier {
 
-
+     id!:number
     titre!:string
     superficie!:string
     prix_location!:string

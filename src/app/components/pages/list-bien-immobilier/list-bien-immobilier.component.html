@@ -6,8 +6,10 @@
       <h3 class="product-name">{{ product.titre }}</h3>
       <p class="product-price">{{ product.prix_location }}</p>
       <button class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="selecProduct(product)" >Details</button>
-      <button class="btn">Reservation</button>
-      <button class="btn">Visite</button>
+      <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button class="btn" (click)="setProduct(product.id)" >Demande-visite</button>
+      </a>
+      <button class="btn">Achat</button>
     </div>
   </div>
 </div>
@@ -36,6 +38,45 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="submit(visiteForm)" #visiteForm="ngForm" enctype="multipart/form-data" novalidate>
+  
+          <div class="form-group">
+            <label for="name">Identifiant :</label>
+            <input type="date" class="form-control" id="name" [(ngModel)]="date_propose" name="date_propose" required>
+            <div *ngIf="visiteForm.submitted && !date_propose" class="text-danger">Veuillez choisir une date</div>
+          </div>
+
+
+
+            <input type="hidden" class="form-control" id="client_id" [(ngModel)]="client_id" name="client_id" required>
+
+            <input type="hidden" class="form-control" id="bien_id" [(ngModel)]="bien_id" name="bien_id" required>
+
+        
+
+        
+          <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
       </div>
     </div>
   </div>
